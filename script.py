@@ -79,7 +79,8 @@ def render_profile_text(stats, generated_at: str) -> str:
 \x1b[92mName:\x1b[0m             {stats.account_name}
 \x1b[92mRole:\x1b[0m             Software engineer / OSS builder
 \x1b[92mOSS focus:\x1b[0m        Kyverno / Golang / CEL policy metrics PR #16359
-\x1b[92mInternship:\x1b[0m       Sprinklr backend systems / LLM infra
+\x1b[92mSprinklr:\x1b[0m         Backend systems / LLM infra
+\x1b[92mIRIS NITK:\x1b[0m        Product, platform, and student tech work
 \x1b[92mCP goal:\x1b[0m          Codeforces consistency and speed
 
 \x1b[30;102mGitHub Stats\x1b[0m
@@ -125,7 +126,7 @@ def render_gif() -> None:
 	terminal.gen_text("aditip149209@github:~$ neofetch", 1, count=5)
 	terminal.gen_text(load_portrait(), 3, 2, contin=True)
 	terminal.gen_text(render_profile_text(stats, generated_at), 3, 28, contin=True)
-	terminal.gen_text("", 24, count=20, contin=True)
+	terminal.gen_text("", 24, count=220, contin=True)
 
 	terminal.gen_gif()
 

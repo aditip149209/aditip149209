@@ -22,3 +22,28 @@
         magenta = "#a8c8a9"
         cyan = "#a3d0bf"
         white = "#f5f8f4"
+
+[orange-fire]
+        [orange-fire.default_colors]
+        fg = "#fff1dc"
+        bg = "#201006"
+
+        [orange-fire.normal_colors]
+        black = "#2b1506"
+        red = "#a84f2c"
+        green = "#d58a33"
+        yellow = "#d69a3a"
+        blue = "#9f5d27"
+        magenta = "#c8732f"
+        cyan = "#e09a4d"
+        white = "#f7d9b1"
+
+        [orange-fire.bright_colors]
+        black = "#4b250c"
+        red = "#d6672d"
+        green = "#ef9a3c"
+        yellow = "#ffb14a"
+        blue = "#e47a2f"
+        magenta = "#f08a35"
+        cyan = "#ffbf63"
+        white = "#fff3dd"
