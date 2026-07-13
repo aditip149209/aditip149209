@@ -7,26 +7,28 @@ from types import SimpleNamespace
 
 from dotenv import load_dotenv
 
-import gifos
-
 
 ROOT = Path(__file__).resolve().parent
 USER_NAME = "aditip149209"
 OUTPUT_GIF = ROOT / "output.gif"
 README_FILE = ROOT / "README.md"
+ASSETS_DIR = ROOT / "assets"
+PORTRAIT_FILE = ASSETS_DIR / "profile-portrait.txt"
 load_dotenv(ROOT / ".env")
 
+import gifos
 
-ASCII_PORTRAIT = r"""
-		.-''''-.
-	  .'  .--.  '.
-	 /   /    \   \
-	;   ;  __  ;   ;
-	|   | (..)| |   |
-	;   ;  '--' ;   ;
-	 \   \.__./   /
-	  '.  '--'  .'
-		'-.__.-'
+
+DEFAULT_ASCII_PORTRAIT = r"""
+        .-''''-.
+      .'  .--.  '.
+     /   /    \   \
+    ;   ;  .--. ;   ;
+    |   | (o  o)| |   |
+    ;   ;  .--. ;   ;
+     \   \ '--' /   /
+      '.  '----'  .'
+        '-.__.-'
 """.strip("\n")
 
 
@@ -58,7 +60,15 @@ def fetch_stats():
 
 def format_languages(stats) -> str:
 	languages = [language for language, _ in getattr(stats, "languages_sorted", [])[:5]]
-	return ", ".join(languages) if languages else "Golang, Python, Shell"
+	if not languages:
+		return "Golang, Python, Shell"
+	return ", ".join(languages[:4])
+
+
+def load_portrait() -> str:
+	if PORTRAIT_FILE.exists():
+		return PORTRAIT_FILE.read_text(encoding="utf-8").strip("\n")
+	return DEFAULT_ASCII_PORTRAIT
 
 
 def render_profile_text(stats, generated_at: str) -> str:
@@ -113,7 +123,7 @@ def render_gif() -> None:
 
 	terminal.clear_frame()
 	terminal.gen_text("aditip149209@github:~$ neofetch", 1, count=5)
-	terminal.gen_text(ASCII_PORTRAIT, 3, 2, contin=True)
+	terminal.gen_text(load_portrait(), 3, 2, contin=True)
 	terminal.gen_text(render_profile_text(stats, generated_at), 3, 28, contin=True)
 	terminal.gen_text("", 24, count=20, contin=True)
 
