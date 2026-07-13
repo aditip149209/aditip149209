@@ -1,0 +1,24 @@
+[forest-sage]
+        [forest-sage.default_colors]
+        fg = "#e7efe7"
+        bg = "#102018"
+
+        [forest-sage.normal_colors]
+        black = "#1b2a22"
+        red = "#8f6b6b"
+        green = "#7caa74"
+        yellow = "#b1b77a"
+        blue = "#6d8f80"
+        magenta = "#88a88b"
+        cyan = "#87b8a4"
+        white = "#dfe8de"
+
+        [forest-sage.bright_colors]
+        black = "#274033"
+        red = "#b58a8a"
+        green = "#9ac492"
+        yellow = "#d1d6a2"
+        blue = "#8bb3a2"
+        magenta = "#a8c8a9"
+        cyan = "#a3d0bf"
+        white = "#f5f8f4"
