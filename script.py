@@ -57,10 +57,10 @@ def render_profile_text(stats, generated_at: str) -> str:
 ------------------------------
 \x1b[92mName:\x1b[0m             {stats.account_name}
 \x1b[92mRole:\x1b[0m             Software engineer / OSS builder
-\x1b[92mOSS focus:\x1b[0m        Kyverno / Golang / CEL policy metrics PR #16359
-\x1b[92mSprinklr:\x1b[0m         Backend systems / LLM infra
+\x1b[92mOSS focus:\x1b[0m        Kyverno / HPC 
+\x1b[92mSprinklr:\x1b[0m         Backend systems / MCPs and Agents
 \x1b[92mIRIS NITK:\x1b[0m        Product, platform, and student tech work
-\x1b[92mCP goal:\x1b[0m          Codeforces consistency and speed
+\x1b[92mCP goal:\x1b[0m          Reach Expert, 5* on CC
 
 \x1b[30;102mGitHub Stats\x1b[0m
 ------------------------------
