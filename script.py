@@ -43,15 +43,10 @@ def fetch_stats():
 		return fallback_stats()
 
 
-def format_languages(stats) -> str:
-	languages = [language for language, _ in getattr(stats, "languages_sorted", [])[:5]]
-	if not languages:
-		return "Golang, Python, Shell"
-	return ", ".join(languages[:4])
+RESUME_LANGUAGES = "Go, C/C++, JavaScript, SQL, Python, Ruby"
 
 
 def render_profile_text(stats, generated_at: str) -> str:
-	top_languages = format_languages(stats)
 	return f"""
 \x1b[30;102m{USER_NAME}@GitHub\x1b[0m
 ------------------------------
@@ -70,13 +65,12 @@ def render_profile_text(stats, generated_at: str) -> str:
 \x1b[92mPRs made:\x1b[0m         {stats.total_pull_requests_made}
 \x1b[92mMerged PRs:\x1b[0m       {stats.total_pull_requests_merged} ({stats.pull_requests_merge_percentage}%)
 \x1b[92mRepo contribs:\x1b[0m    {stats.total_repo_contributions}
-\x1b[92mTop languages:\x1b[0m    {top_languages}
+\x1b[92mTop languages:\x1b[0m    {RESUME_LANGUAGES}
 
 \x1b[30;102mCurrent Mission\x1b[0m
 ------------------------------
 \x1b[92mRank:\x1b[0m             {stats.user_rank.level}
 \x1b[92mBuild time:\x1b[0m       {generated_at}
-\x1b[92mLanguages:\x1b[0m        Go, Python, C/C++, JS, Ruby
 \x1b[92mToolbox:\x1b[0m          React, Rails, FastAPI, Docker, Kafka
 """.strip("\n")
 
