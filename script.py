@@ -76,13 +76,14 @@ def render_profile_text(stats, generated_at: str) -> str:
 ------------------------------
 \x1b[92mRank:\x1b[0m             {stats.user_rank.level}
 \x1b[92mBuild time:\x1b[0m       {generated_at}
-\x1b[92mStack:\x1b[0m            Golang / Python / systems / LLM
+\x1b[92mLanguages:\x1b[0m        Go, Python, C/C++, JS, Ruby
+\x1b[92mToolbox:\x1b[0m          React, Rails, FastAPI, Docker, Kafka
 """.strip("\n")
 
 
-def write_readme(image_source: str, generated_at: str) -> None:
+def write_readme(image_source: str) -> None:
 	README_FILE.write_text(
-		f"""<div align="center">\n\n<picture>\n  <source media="(prefers-color-scheme: dark)" srcset="{image_source}">\n  <source media="(prefers-color-scheme: light)" srcset="{image_source}">\n  <img alt="Animated GitHub profile terminal" src="{image_source}" width="100%">\n</picture>\n\n</div>\n\n## About\n\nHi, I'm Aditi Pandey. I work across OSS and backend systems, with open-source contributions around Kyverno and Golang, including CEL policy metrics work. I also spent time on Sprinklr backend and LLM infrastructure work, and I’m keeping a steady Codeforces practice streak as part of my competitive programming goals. I’m part of IRIS NITK as well, and the GIF above pulls those same themes together in a retro terminal style.\n\n## Regeneration\n\nRun `python script.py` to rebuild the GIF locally.\n\n## Secrets\n\nIf you want the GitHub stats and upload flow to run in GitHub Actions, add these repository secrets manually:\n\n- `PROFILE_GH_PAT` — a fine-grained personal access token for GitHub API access used by the script. **Cannot be named `GITHUB_TOKEN`**: that name is reserved by GitHub Actions and always resolves to the low-scope, repo-only automatic token, which silently breaks the stats fetch and falls back to all-zero stats\n- `IMGBB_API_KEY` if you want the workflow to publish the GIF to ImgBB before updating the README\n\n<sub>Generated automatically on {generated_at}.</sub>\n""",
+		f"""<div align="center">\n\n<picture>\n  <source media="(prefers-color-scheme: dark)" srcset="{image_source}">\n  <source media="(prefers-color-scheme: light)" srcset="{image_source}">\n  <img alt="Animated GitHub profile terminal" src="{image_source}" width="100%">\n</picture>\n\n</div>\n\n## About\n\nHi, I'm Aditi Pandey. I work across OSS and backend systems, with open-source contributions around Kyverno and Golang, including CEL policy metrics work. I also spent time on Sprinklr backend and LLM infrastructure work, and I’m keeping a steady Codeforces practice streak as part of my competitive programming goals. I’m part of IRIS NITK as well, and the GIF above pulls those same themes together in a retro terminal style.\n\nMy day-to-day stack spans Go, Python, C/C++, JavaScript, and Ruby, with React, Next.js, and Ruby on Rails on the web side, FastAPI and Node.js for services, and Docker, Kafka, Elasticsearch, MongoDB, PostgreSQL, Prometheus, and Grafana for data and infra.\n""",
 		encoding="utf-8",
 	)
 
@@ -91,7 +92,7 @@ def render_gif() -> None:
 	stats = fetch_stats()
 	generated_at = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
 
-	terminal = gifos.Terminal(width=780, height=500, xpad=14, ypad=14)
+	terminal = gifos.Terminal(width=780, height=540, xpad=14, ypad=14)
 	terminal.toggle_show_cursor(False)
 
 	terminal.gen_text("booting aditip149209@github ...", 1, count=6)
@@ -120,7 +121,7 @@ def upload_if_configured() -> str:
 def main() -> None:
 	render_gif()
 	image_source = upload_if_configured()
-	write_readme(image_source=image_source, generated_at=datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"))
+	write_readme(image_source=image_source)
 	print(image_source)
 
 
