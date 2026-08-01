@@ -10,17 +10,4 @@
 
 ## About
 
-This profile GIF is generated with [github-readme-terminal](https://github.com/x0rzavi/github-readme-terminal) and updated automatically. It highlights live GitHub stats for [aditip149209](https://github.com/aditip149209) alongside a retro terminal layout tuned for a forest / sage palette.
-
-## Regeneration
-
-Run `python script.py` to rebuild the GIF locally.
-
-## Secrets
-
-If you want the GitHub stats and upload flow to run in GitHub Actions, add these repository secrets manually:
-
-- `GITHUB_TOKEN` for GitHub API access used by the script
-- `IMGBB_API_KEY` if you want the workflow to publish the GIF to ImgBB before updating the README
-
-<sub>Generated automatically on 2026-07-13 15:22 UTC.</sub>
+Hi, I'm Aditi Pandey. I work across OSS and backend systems, with open-source contributions around Kyverno, including CEL policy metrics work. I also spent time on Sprinklr backend and LLM infrastructure work, and I’m keeping a steady Codeforces practice streak as part of my competitive programming goals. I’m part of IRIS NITK as well, where I'm currently the Web Lead, heading the website team.
