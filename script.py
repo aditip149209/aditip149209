@@ -72,6 +72,7 @@ def render_profile_text(stats, generated_at: str) -> str:
 \x1b[92mRank:\x1b[0m             {stats.user_rank.level}
 \x1b[92mBuild time:\x1b[0m       {generated_at}
 \x1b[92mToolbox:\x1b[0m          React, Rails, FastAPI, Docker, Kafka
+\x1b[92mMission:\x1b[0m          Become a world-class SWE, then build my own
 """.strip("\n")
 
 
