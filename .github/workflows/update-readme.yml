@@ -33,7 +33,7 @@ jobs:
 
       - name: Build GIF and refresh README
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PROFILE_GH_PAT }}
           IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
         run: python script.py
 

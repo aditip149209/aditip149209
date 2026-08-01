@@ -20,7 +20,7 @@ Run `python script.py` to rebuild the GIF locally.
 
 If you want the GitHub stats and upload flow to run in GitHub Actions, add these repository secrets manually:
 
-- `GITHUB_TOKEN` for GitHub API access used by the script
+- `PROFILE_GH_PAT` — a fine-grained personal access token for GitHub API access used by the script. **Cannot be named `GITHUB_TOKEN`**: that name is reserved by GitHub Actions and always resolves to the low-scope, repo-only automatic token, which silently breaks the stats fetch and falls back to all-zero stats
 - `IMGBB_API_KEY` if you want the workflow to publish the GIF to ImgBB before updating the README
 
-<sub>Generated automatically on 2026-08-01 07:00 UTC.</sub>
+<sub>Generated automatically on 2026-08-01 07:24 UTC.</sub>
