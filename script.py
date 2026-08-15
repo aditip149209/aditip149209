@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import os
 from datetime import datetime
 from pathlib import Path
@@ -106,11 +107,17 @@ def render_gif() -> None:
 
 
 def upload_if_configured() -> str:
-	image_url = OUTPUT_GIF.name
 	if os.getenv("IMGBB_API_KEY"):
 		uploaded = gifos.utils.upload_imgbb(file_name=OUTPUT_GIF.name, expiration=129600)
-		image_url = uploaded.url
-	return image_url
+		return uploaded.url
+
+	# Cache-bust the relative path: GitHub/browsers cache image URLs for
+	# several minutes, and a static "output.gif" path never changes, so a
+	# freshly pushed gif can keep showing the previous one until the cache
+	# expires. Tying the query string to the file's content hash forces a
+	# new URL (and a fresh fetch) whenever the gif actually changes.
+	digest = hashlib.sha256(OUTPUT_GIF.read_bytes()).hexdigest()[:8]
+	return f"{OUTPUT_GIF.name}?v={digest}"
 
 
 def main() -> None:
