@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="output.gif?v=9982f819">
-  <source media="(prefers-color-scheme: light)" srcset="output.gif?v=9982f819">
-  <img alt="Animated GitHub profile terminal" src="output.gif?v=9982f819" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="output.gif?v=7ed6287d">
+  <source media="(prefers-color-scheme: light)" srcset="output.gif?v=7ed6287d">
+  <img alt="Animated GitHub profile terminal" src="output.gif?v=7ed6287d" width="100%">
 </picture>
 
 </div>
